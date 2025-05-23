@@ -7,11 +7,14 @@ import org.jetbrains.annotations.Nullable;
 class MessagePatcher {
 
   private final JsonObject message;
+  private final ServerVersion version;
+
   private boolean isFirstPart;
   private @Nullable JsonArray insertedExtraParts;
 
-  public MessagePatcher(JsonObject message) {
+  public MessagePatcher(JsonObject message, ServerVersion version) {
     this.message = message;
+    this.version = version;
     this.isFirstPart = true;
   }
 
@@ -33,15 +36,21 @@ class MessagePatcher {
 
     container.addProperty("text", part);
 
-    // NOTE: "url" and "click_event" are specific to >= 1.21.5
     if (url != null) {
       container.addProperty("underlined", true);
 
       var clickEvent = new JsonObject();
       clickEvent.addProperty("action", "open_url");
-      clickEvent.addProperty("url", url);
 
-      container.add("click_event", clickEvent);
+      if (version.compareTo(ServerVersion.V1_21_5) >= 0)
+        clickEvent.addProperty("url", url);
+      else
+        clickEvent.addProperty("value", url);
+
+      if (version.compareTo(ServerVersion.V1_21_5) >= 0)
+        container.add("click_event", clickEvent);
+      else
+        container.add("clickEvent", clickEvent);
     }
 
     isFirstPart = false;

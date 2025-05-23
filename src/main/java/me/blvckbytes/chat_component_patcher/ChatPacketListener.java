@@ -16,9 +16,10 @@ public class ChatPacketListener extends PacketAdapter {
 
   private static final Gson GSON_INSTANCE = new GsonBuilder().create();
 
+  private final ServerVersion version;
   private final Logger logger;
 
-  public ChatPacketListener(Plugin plugin, Logger logger) {
+  public ChatPacketListener(Plugin plugin, ServerVersion version, Logger logger) {
     super(
       plugin,
       ListenerPriority.HIGHEST,
@@ -26,6 +27,7 @@ public class ChatPacketListener extends PacketAdapter {
       PacketType.Play.Server.CHAT
     );
 
+    this.version = version;
     this.logger = logger;
   }
 
@@ -37,7 +39,7 @@ public class ChatPacketListener extends PacketAdapter {
       var textContents = textPrimitive.getAsString();
       var linkMatcher = LinkParser.matchLinks(textContents);
 
-      var patcher = new MessagePatcher(message);
+      var patcher = new MessagePatcher(message, version);
       var lastLinkEnd = 0;
 
       while (linkMatcher.find()) {
