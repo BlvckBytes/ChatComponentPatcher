@@ -1,0 +1,6 @@
+name: ChatComponentPatcher
+version: 0.1
+author: BlvckBytes
+main: me.blvckbytes.chat_component_patcher.ChatComponentPatcherPlugin
+api-version: 1.13
+depend: [ProtocolLib]
