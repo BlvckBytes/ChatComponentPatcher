@@ -1,6 +1,6 @@
-name: ChatComponentPatcher
+name: LinkEnabler
 version: ${project.version}
 author: BlvckBytes
-main: me.blvckbytes.chat_component_patcher.ChatComponentPatcherPlugin
+main: me.blvckbytes.link_enabler.LinkEnablerPlugin
 api-version: 1.13
 depend: [ProtocolLib]

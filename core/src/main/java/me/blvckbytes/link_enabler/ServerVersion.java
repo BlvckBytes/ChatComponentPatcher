@@ -1,4 +1,4 @@
-package me.blvckbytes.chat_component_patcher;
+package me.blvckbytes.link_enabler;
 
 import org.bukkit.Bukkit;
 import org.jetbrains.annotations.NotNull;

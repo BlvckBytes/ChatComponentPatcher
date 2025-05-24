@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>me.blvckbytes</groupId>
-        <artifactId>chatcomponentpatcher-root</artifactId>
+        <artifactId>linkenabler-root</artifactId>
         <version>${revision}</version>
     </parent>
 
     <artifactId>core</artifactId>
-    <name>ChatComponentPatcher</name>
+    <name>LinkEnabler</name>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

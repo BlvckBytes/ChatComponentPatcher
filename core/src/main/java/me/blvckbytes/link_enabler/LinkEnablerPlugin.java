@@ -1,4 +1,4 @@
-package me.blvckbytes.chat_component_patcher;
+package me.blvckbytes.link_enabler;
 
 import com.comphenix.protocol.ProtocolLibrary;
 import org.bukkit.Bukkit;
@@ -8,7 +8,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ChatComponentPatcherPlugin extends JavaPlugin {
+public class LinkEnablerPlugin extends JavaPlugin {
 
   @Override
   public void onEnable() {
