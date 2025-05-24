@@ -99,12 +99,15 @@ public class ChatPacketListener extends PacketAdapter {
   }
 
   private @Nullable String patchRawJsonMessage(String rawJson) {
-    var jsonMessage = GSON_INSTANCE.fromJson(rawJson, JsonObject.class);
+    var jsonElement = GSON_INSTANCE.fromJson(rawJson, JsonElement.class);
 
-    if (!patchJsonMessage(jsonMessage))
+    if (!(jsonElement instanceof JsonObject jsonObject))
       return null;
 
-    return GSON_INSTANCE.toJson(jsonMessage);
+    if (!patchJsonMessage(jsonObject))
+      return null;
+
+    return GSON_INSTANCE.toJson(jsonObject);
   }
 
   private void patchSystemChatPacket(PacketContainer packetContainer) {
