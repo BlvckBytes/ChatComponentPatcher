@@ -1,5 +1,5 @@
 name: ChatComponentPatcher
-version: 0.1
+version: ${project.version}
 author: BlvckBytes
 main: me.blvckbytes.chat_component_patcher.ChatComponentPatcherPlugin
 api-version: 1.13

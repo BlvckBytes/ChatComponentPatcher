@@ -5,13 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.blvckbytes</groupId>
-    <artifactId>ChatComponentPatcher</artifactId>
-    <version>0.1</version>
+    <artifactId>chatcomponentpatcher-root</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>common</module>
+        <module>core</module>
+        <module>compatibility/gte_v1_19_3</module>
+        <module>compatibility/gte_v1_19_1</module>
+        <module>compatibility/gte_v1_21</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <revision>0.1</revision>
     </properties>
 
     <repositories>
@@ -23,10 +33,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.13.1-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>26.0.2</version>
         </dependency>
         <dependency>
             <groupId>com.comphenix.protocol</groupId>
@@ -34,10 +43,17 @@
             <version>5.1.0</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>26.0.2</version>
-        </dependency>
     </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>plugin.yml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
 </project>
