@@ -36,8 +36,8 @@ public class ChatComponentPatcherPlugin extends JavaPlugin {
   }
 
   private @Nullable PacketJsonRW decideJsonRW(ServerVersion version, Logger logger) {
-    if (version.compareTo(ServerVersion.V1_21) >= 0)
-      return new GTE_V1_21_PacketJsonRW(logger);
+    if (version.compareTo(ServerVersion.V1_20_4) >= 0)
+      return new GTE_V1_20_4_PacketJsonRW(logger);
 
     if (version.compareTo(ServerVersion.V1_19_3) >= 0)
       return new GTE_V1_19_3_PacketJsonRW(logger);

@@ -20,9 +20,12 @@ public class GTE_V1_19_1_PacketJsonRW extends PacketJsonRW {
   }
 
   @Override
-  protected JsonAndUpdater tryExtractSystemChat(PacketEvent event) {
+  protected @Nullable JsonAndUpdater tryExtractSystemChat(PacketEvent event) {
     var packet = event.getPacket();
     var jsonString = packet.getStrings().readSafely(0);
+
+    if (jsonString == null)
+      return null;
 
     return new JsonAndUpdater(
       jsonString,

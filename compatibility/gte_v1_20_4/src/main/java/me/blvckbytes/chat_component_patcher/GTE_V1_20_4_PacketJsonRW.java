@@ -6,11 +6,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class GTE_V1_21_PacketJsonRW extends PacketJsonRW {
+public class GTE_V1_20_4_PacketJsonRW extends PacketJsonRW {
 
   private final Logger logger;
 
-  public GTE_V1_21_PacketJsonRW(Logger logger) {
+  public GTE_V1_20_4_PacketJsonRW(Logger logger) {
     this.logger = logger;
   }
 
